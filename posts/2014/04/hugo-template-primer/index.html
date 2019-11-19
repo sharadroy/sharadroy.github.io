@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="Jane Doe ">
-<meta name="description" content="Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates." />
+<meta name="author" content="map[name:Hugo Authors]">
+<meta name="description" content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
+This document is a brief primer on using Go templates." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://sharadroy.github.io/posts/2014/04/hugo-template-primer/" />
+<link rel="canonical" href="https://example.com/posts/2014/04/hugo-template-primer/" />
 
 
     <title>
@@ -26,38 +26,38 @@ This document is a brief primer on using go templates." />
 
 
 
-<link rel="stylesheet" href="https://sharadroy.github.io/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+<link rel="stylesheet" href="https://example.com/main.min.73f55a8d452be4a71b2960620b80252cf69abd84d63fe7501abf0a39b1a70a78.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://sharadroy.github.io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://sharadroy.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://sharadroy.github.io/favicon-16x16.png">
-    <link rel="manifest" href="https://sharadroy.github.io/site.webmanifest">
-    <link rel="mask-icon" href="https://sharadroy.github.io/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://sharadroy.github.io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://example.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://example.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://example.com/favicon-16x16.png">
+    <link rel="manifest" href="https://example.com/site.webmanifest">
+    <link rel="mask-icon" href="https://example.com/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://example.com/favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
 <meta itemprop="name" content="(Hu)go Template Primer">
-<meta itemprop="description" content="Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.">
+<meta itemprop="description" content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
+This document is a brief primer on using Go templates.">
 
 
 <meta itemprop="datePublished" content="2014-04-02T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2014-04-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1488">
+<meta itemprop="wordCount" content="1487">
 
 
 
 <meta itemprop="keywords" content="go,golang,templates,themes,development," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://sharadroy.github.io"/>
+<meta name="twitter:image" content="https://example.com"/>
 
 <meta name="twitter:title" content="(Hu)go Template Primer"/>
-<meta name="twitter:description" content="Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates."/>
+<meta name="twitter:description" content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
+This document is a brief primer on using Go templates."/>
 
 
 
@@ -82,7 +82,7 @@ This document is a brief primer on using go templates."/>
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://sharadroy.github.io/" style="text-decoration: none;">
+        <a href="https://example.com/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -96,7 +96,7 @@ This document is a brief primer on using go templates."/>
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://sharadroy.github.io/about/">About</a></li><li><a href="https://sharadroy.github.io/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://example.com/about/">About</a></li><li><a href="https://example.com/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -127,13 +127,18 @@ This document is a brief primer on using go templates."/>
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>7 minutes
 
             
+                | Also available in
+                
+                    <a href="https://example.com/fr/posts/2014/04/introduction-aux-mod%C3%A8les-hugo/"><span class="flag flag-icon flag-icon-fr flag-icon-squared"></span></a>
+                
+            
 
             </p>
         </div>
 
         <article>
             <h1 class="post-title">
-                <a href="https://sharadroy.github.io/posts/2014/04/hugo-template-primer/">(Hu)go Template Primer</a>
+                <a href="https://example.com/posts/2014/04/hugo-template-primer/">(Hu)go Template Primer</a>
             </h1>
 
             
@@ -141,29 +146,29 @@ This document is a brief primer on using go templates."/>
             <div class="post-content">
                 
 
-<p>Hugo uses the excellent <a href="http://golang.org/&gt;" target="_blank">go</a> <a href="http://golang.org/pkg/html/template/&gt;" target="_blank">html/template</a> library for
+<p>Hugo uses the excellent <a href="https://golang.org/" target="_blank">Go</a> <a href="https://golang.org/pkg/html/template/" target="_blank">html/template</a> library for
 its template engine. It is an extremely lightweight engine that provides a very
 small amount of logic. In our experience that it is just the right amount of
 logic to be able to create a good static website. If you have used other
 template systems from different languages or frameworks you will find a lot of
-similarities in go templates.</p>
+similarities in Go templates.</p>
 
-<p>This document is a brief primer on using go templates. The <a href="http://golang.org/pkg/html/template/&gt;" target="_blank">go docs</a>
+<p>This document is a brief primer on using Go templates. The <a href="https://golang.org/pkg/html/template/" target="_blank">Go docs</a>
 provide more details.</p>
 
 <h2 id="introduction-to-go-templates">Introduction to Go Templates</h2>
 
 <p>Go templates provide an extremely simple template language. It adheres to the
 belief that only the most basic of logic belongs in the template or view layer.
-One consequence of this simplicity is that go templates parse very quickly.</p>
+One consequence of this simplicity is that Go templates parse very quickly.</p>
 
-<p>A unique characteristic of go templates is they are content aware. Variables and
+<p>A unique characteristic of Go templates is they are content aware. Variables and
 content will be sanitized depending on the context of where they are used. More
-details can be found in the <a href="http://golang.org/pkg/html/template/&gt;" target="_blank">go docs</a>.</p>
+details can be found in the <a href="https://golang.org/pkg/html/template/" target="_blank">Go docs</a>.</p>
 
 <h2 id="basic-syntax">Basic Syntax</h2>
 
-<p>Go lang templates are html files with the addition of variables and
+<p>Golang templates are HTML files with the addition of variables and
 functions.</p>
 
 <p><strong>Go variables and functions are accessible within {{ }}</strong></p>
@@ -194,10 +199,10 @@ functions.</p>
 
 <h2 id="variables">Variables</h2>
 
-<p>Each go template has a struct (object) made available to it. In hugo each
+<p>Each Go template has a struct (object) made available to it. In hugo each
 template is passed either a page or a node struct depending on which type of
 page you are rendering. More details are available on the
-<a href="https://sharadroy.github.io/layout/variables">variables</a> page.</p>
+<a href="https://example.com/layout/variables">variables</a> page.</p>
 
 <p>A variable is accessed by referencing the variable name.</p>
 
@@ -212,9 +217,9 @@ page you are rendering. More details are available on the
 
 <h2 id="functions">Functions</h2>
 
-<p>Go template ship with a few functions which provide basic functionality. The go
+<p>Go template ship with a few functions which provide basic functionality. The Go
 template system also provides a mechanism for applications to extend the
-available functions with their own. <a href="https://sharadroy.github.io/layout/functions">Hugo template
+available functions with their own. <a href="https://example.com/layout/functions">Hugo template
 functions</a> provide some additional functionality we believe
 are useful for building websites. Functions are called by using their name
 followed by the required parameters separated by spaces. Template
@@ -243,7 +248,7 @@ the /layout/ directory within Hugo.</p>
 
 <h3 id="iteration">Iteration</h3>
 
-<p>Just like in go, the go templates make heavy use of range to iterate over
+<p>Just like in Go, the Go templates make heavy use of range to iterate over
 a map, array or slice. The following are different examples of how to use
 range.</p>
 
@@ -323,12 +328,12 @@ and skips the block if the variable is absent.</p>
 
 <h2 id="pipes">Pipes</h2>
 
-<p>One of the most powerful components of go templates is the ability to
+<p>One of the most powerful components of Go templates is the ability to
 stack actions one after another. This is done by using pipes. Borrowed
 from unix pipes, the concept is simple, each pipeline&rsquo;s output becomes the
 input of the following pipe.</p>
 
-<p>Because of the very simple syntax of go templates, the pipe is essential
+<p>Because of the very simple syntax of Go templates, the pipe is essential
 to being able to chain together function calls. One limitation of the
 pipes is that they only can work with a single value and that value
 becomes the last parameter of the next pipeline.</p>
@@ -371,7 +376,7 @@ Stuff Here
 
 <h2 id="context-aka-the-dot">Context (aka. the dot)</h2>
 
-<p>The most easily overlooked concept to understand about go templates is that {{ . }}
+<p>The most easily overlooked concept to understand about Go templates is that {{ . }}
 always refers to the current context. In the top level of your template this
 will be the data set made available to it. Inside of a iteration it will have
 the value of the current item. When inside of a loop the context has changed. .
@@ -402,7 +407,7 @@ you want to inside of your templates.</p>
 <h2 id="using-content-page-parameters">Using Content (page) Parameters</h2>
 
 <p>In each piece of content you can provide variables to be used by the
-templates. This happens in the <a href="https://sharadroy.github.io/content/front-matter">front matter</a>.</p>
+templates. This happens in the <a href="https://example.com/content/front-matter">front matter</a>.</p>
 
 <p>An example of this is used in this documentation site. Most of the pages
 benefit from having the table of contents provided. Sometimes the TOC just
@@ -481,10 +486,10 @@ so, such as in this example:</p>
 
         <div class="post-info">
                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://sharadroy.github.io/tags/go">go</a></span><span class="tag"><a href="https://sharadroy.github.io/tags/golang">golang</a></span><span class="tag"><a href="https://sharadroy.github.io/tags/templates">templates</a></span><span class="tag"><a href="https://sharadroy.github.io/tags/themes">themes</a></span><span class="tag"><a href="https://sharadroy.github.io/tags/development">development</a></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://example.com/tags/go">go</a></span><span class="tag"><a href="https://example.com/tags/golang">golang</a></span><span class="tag"><a href="https://example.com/tags/templates">templates</a></span><span class="tag"><a href="https://example.com/tags/themes">themes</a></span><span class="tag"><a href="https://example.com/tags/development">development</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1488 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1487 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-04-02 05:30 &#43;0530</p>
         </div>
@@ -499,16 +504,16 @@ so, such as in this example:</p>
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://sharadroy.github.io/posts/2014/09/creating-a-new-theme/">
+                            <a href="https://example.com/posts/2014/03/migrate-to-hugo-from-jekyll/">
                                 <span class="button__icon">←</span>
-                                <span class="button__text">Creating a New Theme</span>
+                                <span class="button__text">Migrate to Hugo from Jekyll</span>
                             </a>
                         </span>
                     
 
                     
                         <span class="button next">
-                            <a href="https://sharadroy.github.io/posts/2014/04/getting-started-with-hugo/">
+                            <a href="https://example.com/posts/2014/04/getting-started-with-hugo/">
                                 <span class="button__text">Getting Started with Hugo</span>
                                 <span class="button__icon">→</span>
                             </a>
@@ -529,10 +534,10 @@ so, such as in this example:</p>
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://sharadroy.github.io">Jane Doe</a></span>
+                <span><a href="https://example.com">Jane Doe</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://sharadroy.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="https://example.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -551,7 +556,7 @@ so, such as in this example:</p>
 
 
 
-<script type="text/javascript" src="https://sharadroy.github.io/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
+<script type="text/javascript" src="https://example.com/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

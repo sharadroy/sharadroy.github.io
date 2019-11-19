@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="Jane Doe ">
+<meta name="author" content="map[name:Michael Henderson]">
 <meta name="description" content="Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://sharadroy.github.io/posts/2014/09/creating-a-new-theme/" />
+<link rel="canonical" href="https://example.com/posts/2014/09/creating-a-new-theme/" />
 
 
     <title>
@@ -26,17 +26,17 @@ We&amp;rsquo;ll start with creating a new site with a very basic template." />
 
 
 
-<link rel="stylesheet" href="https://sharadroy.github.io/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+<link rel="stylesheet" href="https://example.com/main.min.73f55a8d452be4a71b2960620b80252cf69abd84d63fe7501abf0a39b1a70a78.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://sharadroy.github.io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://sharadroy.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://sharadroy.github.io/favicon-16x16.png">
-    <link rel="manifest" href="https://sharadroy.github.io/site.webmanifest">
-    <link rel="mask-icon" href="https://sharadroy.github.io/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://sharadroy.github.io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://example.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://example.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://example.com/favicon-16x16.png">
+    <link rel="manifest" href="https://example.com/site.webmanifest">
+    <link rel="mask-icon" href="https://example.com/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://example.com/favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
@@ -47,13 +47,13 @@ We&rsquo;ll start with creating a new site with a very basic template.">
 
 <meta itemprop="datePublished" content="2014-09-28T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2014-09-28T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="7232">
+<meta itemprop="wordCount" content="7233">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://sharadroy.github.io"/>
+<meta name="twitter:image" content="https://example.com"/>
 
 <meta name="twitter:title" content="Creating a New Theme"/>
 <meta name="twitter:description" content="Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.
@@ -78,7 +78,7 @@ We&rsquo;ll start with creating a new site with a very basic template."/>
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://sharadroy.github.io/" style="text-decoration: none;">
+        <a href="https://example.com/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -92,7 +92,7 @@ We&rsquo;ll start with creating a new site with a very basic template."/>
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://sharadroy.github.io/about/">About</a></li><li><a href="https://sharadroy.github.io/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://example.com/about/">About</a></li><li><a href="https://example.com/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -123,13 +123,18 @@ We&rsquo;ll start with creating a new site with a very basic template."/>
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>34 minutes
 
             
+                | Also available in
+                
+                    <a href="https://example.com/fr/posts/2014/09/cr%C3%A9ation-dun-nouveau-th%C3%A8me/"><span class="flag flag-icon flag-icon-fr flag-icon-squared"></span></a>
+                
+            
 
             </p>
         </div>
 
         <article>
             <h1 class="post-title">
-                <a href="https://sharadroy.github.io/posts/2014/09/creating-a-new-theme/">Creating a New Theme</a>
+                <a href="https://example.com/posts/2014/09/creating-a-new-theme/">Creating a New Theme</a>
             </h1>
 
             
@@ -152,7 +157,7 @@ $ echo this is a command
 this is a command
 
 ## edit the file
-$vi foo.md
+$ vi foo.md
 +++
 date = &quot;2014-09-28&quot;
 title = &quot;creating a new theme&quot;
@@ -1236,7 +1241,7 @@ $ vi themes/zafta/layouts/_default/single.html
 
         <div class="post-info">
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>7232 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>7233 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-09-28 05:30 &#43;0530</p>
         </div>
@@ -1250,18 +1255,11 @@ $ vi themes/zafta/layouts/_default/single.html
 
                 <div class="pagination__buttons">
                     
-                        <span class="button previous">
-                            <a href="https://sharadroy.github.io/posts/2017/01/theme-demo/">
-                                <span class="button__icon">←</span>
-                                <span class="button__text">Theme Demo</span>
-                            </a>
-                        </span>
-                    
 
                     
                         <span class="button next">
-                            <a href="https://sharadroy.github.io/posts/2014/04/hugo-template-primer/">
-                                <span class="button__text">(Hu)go Template Primer</span>
+                            <a href="https://example.com/posts/2014/03/migrate-to-hugo-from-jekyll/">
+                                <span class="button__text">Migrate to Hugo from Jekyll</span>
                                 <span class="button__icon">→</span>
                             </a>
                         </span>
@@ -1281,10 +1279,10 @@ $ vi themes/zafta/layouts/_default/single.html
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://sharadroy.github.io">Jane Doe</a></span>
+                <span><a href="https://example.com">Jane Doe</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://sharadroy.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="https://example.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -1303,7 +1301,7 @@ $ vi themes/zafta/layouts/_default/single.html
 
 
 
-<script type="text/javascript" src="https://sharadroy.github.io/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
+<script type="text/javascript" src="https://example.com/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

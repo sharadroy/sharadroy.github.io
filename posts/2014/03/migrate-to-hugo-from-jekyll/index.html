@@ -4,12 +4,14 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="Jane Doe ">
-<meta name="description" content="Table of Contents  Move static content to static Create your Hugo configuration file Set your configuration publish folder to site Convert Jekyll templates to Hugo templates Convert Jekyll plugins to Hugo shortcodes  Implementation Usage  Finishing Touches  Fix Content Clean Up  A practical example in a diff  Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output." />
+<meta name="author" content="map[name:Hugo Authors]">
+<meta name="description" content="Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
+▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://sharadroy.github.io/posts/2014/03/migrate-to-hugo-from-jekyll/" />
+<link rel="canonical" href="https://example.com/posts/2014/03/migrate-to-hugo-from-jekyll/" />
 
 
     <title>
@@ -25,36 +27,40 @@
 
 
 
-<link rel="stylesheet" href="https://sharadroy.github.io/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+<link rel="stylesheet" href="https://example.com/main.min.73f55a8d452be4a71b2960620b80252cf69abd84d63fe7501abf0a39b1a70a78.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://sharadroy.github.io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://sharadroy.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://sharadroy.github.io/favicon-16x16.png">
-    <link rel="manifest" href="https://sharadroy.github.io/site.webmanifest">
-    <link rel="mask-icon" href="https://sharadroy.github.io/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://sharadroy.github.io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://example.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://example.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://example.com/favicon-16x16.png">
+    <link rel="manifest" href="https://example.com/site.webmanifest">
+    <link rel="mask-icon" href="https://example.com/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://example.com/favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
 <meta itemprop="name" content="Migrate to Hugo from Jekyll">
-<meta itemprop="description" content="The post explains how to migrate from from Jekyll to Hugo.">
+<meta itemprop="description" content="Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &lt;root&gt;/ ▾ images/ logo.png  should become
+▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.">
 
 
 <meta itemprop="datePublished" content="2014-03-10T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2014-03-10T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="859">
+<meta itemprop="wordCount" content="813">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://sharadroy.github.io"/>
+<meta name="twitter:image" content="https://example.com"/>
 
 <meta name="twitter:title" content="Migrate to Hugo from Jekyll"/>
-<meta name="twitter:description" content="The post explains how to migrate from from Jekyll to Hugo."/>
+<meta name="twitter:description" content="Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &lt;root&gt;/ ▾ images/ logo.png  should become
+▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static."/>
 
 
 
@@ -75,7 +81,7 @@
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://sharadroy.github.io/" style="text-decoration: none;">
+        <a href="https://example.com/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -89,7 +95,7 @@
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://sharadroy.github.io/about/">About</a></li><li><a href="https://sharadroy.github.io/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://example.com/about/">About</a></li><li><a href="https://example.com/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -117,8 +123,13 @@
     <main class="post">
 
         <div class="post-info">
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 minutes
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>4 minutes
 
+            
+                | Also available in
+                
+                    <a href="https://example.com/fr/posts/2014/03/migrer-vers-hugo-depuis-jekyll/"><span class="flag flag-icon flag-icon-fr flag-icon-squared"></span></a>
+                
             
 
             </p>
@@ -126,35 +137,13 @@
 
         <article>
             <h1 class="post-title">
-                <a href="https://sharadroy.github.io/posts/2014/03/migrate-to-hugo-from-jekyll/">Migrate to Hugo from Jekyll</a>
+                <a href="https://example.com/posts/2014/03/migrate-to-hugo-from-jekyll/">Migrate to Hugo from Jekyll</a>
             </h1>
 
             
 
             <div class="post-content">
                 
-
-<h1 id="table-of-contents">Table of Contents</h1>
-
-<ol>
-<li><a href="#move-static-content-to-static">Move static content to <code>static</code></a></li>
-<li><a href="#create-your-hugo-configuration-file">Create your Hugo configuration file</a></li>
-<li><a href="#set-your-configuration-publish-folder-to-site">Set your configuration publish folder to <code>site</code></a></li>
-<li><a href="#convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</a></li>
-<li><a href="#convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</a>
-
-<ul>
-<li><a href="#implementation">Implementation</a></li>
-<li><a href="#usage">Usage</a></li>
-</ul></li>
-<li><a href="#finishing-touches">Finishing Touches</a>
-
-<ul>
-<li><a href="#fix-content">Fix Content</a></li>
-<li><a href="#clean-up">Clean Up</a></li>
-</ul></li>
-<li><a href="#a-practical-example-in-a-diff">A practical example in a diff</a></li>
-</ol>
 
 <h2 id="move-static-content-to-static">Move static content to <code>static</code></h2>
 
@@ -178,7 +167,7 @@ With Jekyll, something that looked like</p>
 
 <h2 id="create-your-hugo-configuration-file">Create your Hugo configuration file</h2>
 
-<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="https://sharadroy.github.io/overview/configuration/">Hugo configuration documentation</a> for details.</p>
+<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="https://example.com/overview/configuration/">Hugo configuration documentation</a> for details.</p>
 
 <h2 id="set-your-configuration-publish-folder-to-site">Set your configuration publish folder to <code>_site</code></h2>
 
@@ -204,13 +193,13 @@ git submodule add -b gh-pages git@github.com:your-username/your-repo.git public
 
 <h2 id="convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</h2>
 
-<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/" target="_blank">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="https://sharadroy.github.io/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
+<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/" target="_blank">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="https://example.com/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
 
 <p>As a single reference data point, converting my templates for <a href="http://heyitsalex.net/" target="_blank">heyitsalex.net</a> took me no more than a few hours.</p>
 
 <h2 id="convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</h2>
 
-<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/" target="_blank">plugins</a>; Hugo has <a href="https://sharadroy.github.io/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
+<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/" target="_blank">plugins</a>; Hugo has <a href="https://example.com/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
 
 <h3 id="implementation">Implementation</h3>
 
@@ -330,7 +319,7 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 
         <div class="post-info">
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>859 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>813 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2014-03-10 05:30 &#43;0530</p>
         </div>
@@ -345,13 +334,20 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
                 <div class="pagination__buttons">
                     
                         <span class="button previous">
-                            <a href="https://sharadroy.github.io/posts/2014/04/getting-started-with-hugo/">
+                            <a href="https://example.com/posts/2014/09/creating-a-new-theme/">
                                 <span class="button__icon">←</span>
-                                <span class="button__text">Getting Started with Hugo</span>
+                                <span class="button__text">Creating a New Theme</span>
                             </a>
                         </span>
                     
 
+                    
+                        <span class="button next">
+                            <a href="https://example.com/posts/2014/04/hugo-template-primer/">
+                                <span class="button__text">(Hu)go Template Primer</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
                     
                 </div>
             </div>
@@ -368,10 +364,10 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://sharadroy.github.io">Jane Doe</a></span>
+                <span><a href="https://example.com">Jane Doe</a></span>
             
             <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
-            <span> <a href="https://sharadroy.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="https://example.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -390,7 +386,7 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
 
 
 
-<script type="text/javascript" src="https://sharadroy.github.io/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
+<script type="text/javascript" src="https://example.com/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 
